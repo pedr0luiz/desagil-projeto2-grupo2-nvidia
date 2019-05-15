@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">projeto2Nvidia</string>
+    <string name="app_name">NVidia</string>
 
     <string name="databaseSizeLabel">Tamanho do Database</string>
 
+    <string name="titleInput">Insira as informações do seu projeto</string>
+
     <string-array name="databaseSizeArray">
         <item>Tamanho do Database</item>
-        <item>10 Gb</item>
-        <item>50 Gb</item>
         <item>100 Gb</item>
         <item>200 Gb</item>
         <item>300 Gb</item>
@@ -17,7 +17,16 @@
         <item>700 Gb</item>
         <item>800 Gb</item>
         <item>900 Gb</item>
-        <item>1 Tb</item>
+        <item>10 Tb</item>
+        <item>20 Tb</item>
+        <item>30 Tb</item>
+        <item>40 Tb</item>
+        <item>50 Tb</item>
+        <item>60 Tb</item>
+        <item>70 Tb</item>
+        <item>80 Tb</item>
+        <item>90 Tb</item>
+        <item>100 Tb</item>
 
     </string-array>
     <string-array name="teamSizeArray">
@@ -32,6 +41,23 @@
         <item>80</item>
         <item>90</item>
         <item>100</item>
+    </string-array>
 
+    <string-array name="CurrentProjectSizeArray">
+        <item>Tamanho do Time</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="ProjectTypeArray">
+        <item>Tipo de Projeto</item>
+        <item>Análise de imagem</item>
+        <item>Vídeo</item>
+        <item>Texto</item>
+        <item>Voz</item>
+        <item>Analytics</item>
+        <item>Big data</item>
     </string-array>
 </resources>

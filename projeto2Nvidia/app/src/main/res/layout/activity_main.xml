@@ -5,7 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/gray">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400sp"
+        android:id="@+id/imageViewMain"
+        android:layout_alignParentTop="true"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inicie sua predição"
+        android:background="@color/colorPrimary"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+        android:layout_below="@id/imageViewMain"
+        android:id="@+id/buttonInit"
+        />
 
 
 </RelativeLayout>

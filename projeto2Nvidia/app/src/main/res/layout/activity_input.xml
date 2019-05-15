@@ -5,20 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".InputActivity">
+    tools:context=".InputActivity"
+    android:background="@color/gray">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleInputs"
+        android:text="@string/titleInput"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="20sp"
+        />
 
     <Spinner
         android:id="@+id/databaseSizeSpinner"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10sp"
+        android:layout_height="50sp"
+        android:layout_marginTop="30sp"
+        android:textAlignment="viewStart"
+        android:layout_below="@id/titleInputs"
+        android:background="@drawable/roundborders"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+
         />
     <Spinner
         android:id="@+id/teamSizeSpinner"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:layout_below="@+id/databaseSizeSpinner"
         android:layout_marginTop="30sp"
+        android:textAlignment="viewStart"
+        android:background="@drawable/roundborders"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+        />
+    <Spinner
+        android:id="@+id/projectsSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_below="@+id/teamSizeSpinner"
+        android:layout_marginTop="30sp"
+        android:textAlignment="viewStart"
+        android:background="@drawable/roundborders"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+        />
+
+    <Spinner
+        android:id="@+id/projectTypeSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_below="@+id/projectsSpinner"
+        android:layout_marginTop="30sp"
+        android:textAlignment="viewStart"
+        android:background="@drawable/roundborders"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="30sp"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+        android:background="@drawable/roundborders"
+        android:textAlignment="center"
+        android:layout_below="@id/projectTypeSpinner"
+        android:text="Finalizar e enviar"
+        android:id="@+id/submitButton"
         />
 </RelativeLayout>
 
