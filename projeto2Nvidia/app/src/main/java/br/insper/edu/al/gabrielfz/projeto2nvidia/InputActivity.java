@@ -13,6 +13,7 @@ public class InputActivity extends AppCompatActivity {
     private int databaseSize = 0;
     private int teamSize = 0;
     private int concurrentProjects = 0;
+    private String usageType;
     private String projectType;
     
     @Override
@@ -46,17 +47,24 @@ public class InputActivity extends AppCompatActivity {
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter4);
 
-        Spinner[] spinnerVector = new Spinner[4];
+        //Set Options fo fifth spinner
+        Spinner spinner5 = (Spinner) findViewById(R.id.typeOfUsageSpinner);
+        ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this, R.array.usageTypeArray, android.R.layout.simple_spinner_item);
+        adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner5.setAdapter(adapter5);
+
+        Spinner[] spinnerVector = new Spinner[5];
         spinnerVector[0] = spinner;
         spinnerVector[1] = spinner2;
         spinnerVector[2] = spinner3;
         spinnerVector[3] = spinner4;
+        spinnerVector[4] = spinner5;
 
 
         //Get Submit Button
         Button botaoSubmit = findViewById(R.id.submitButton);
         botaoSubmit.setOnClickListener((view) -> {
-            String[] data = new String[4];
+            String[] data = new String[5];
             int idx = 0;
             for(Spinner spin: spinnerVector){
                 if(spin.getSelectedItemPosition() == 0){
@@ -71,14 +79,24 @@ public class InputActivity extends AppCompatActivity {
             this.teamSize = Integer.parseInt(data[1].split(" ")[0]);
             this.concurrentProjects = Integer.parseInt(data[2].split(" ")[0]);
             this.projectType = data[3];
+            this.usageType = data[4];
             Predictor predicao = new Predictor(this.teamSize,this.projectType,this.concurrentProjects,this.databaseSize);
-            String name = predicao.bestSolution().getName();
-            String price = String.valueOf(predicao.bestSolution().getPrice());
-            String memory = String.valueOf(predicao.bestSolution().getGpuMemory());
+            String bestOptionName = predicao.bestSolution().getName();
+            String bestOptionPrice = String.valueOf(predicao.bestSolution().getPrice());
+
+            String bestCloudOption = predicao.predictCloud().getName();
+            String bestCloudOptionPrice = String.valueOf(predicao.predictCloudPrice());
+
+            String bestServerOption = predicao.predictServer().getName();
+            String bestServerOptionPrice = String.valueOf(predicao.predictServer().getPrice());
+
             Intent intent = new Intent(this,ResultsActivity.class);
-            intent.putExtra("Name",name);
-            intent.putExtra("Preco",price);
-            intent.putExtra("GPUMemory",memory);
+            intent.putExtra("bestOption",bestOptionName);
+            intent.putExtra("bestOptionPrice",bestOptionPrice);
+            intent.putExtra("bestCloudOption", bestCloudOption);
+            intent.putExtra("bestCloudOptionPrice",bestCloudOptionPrice);
+            intent.putExtra("bestServerOption",bestServerOption);
+            intent.putExtra("bestServerOptionPrice",bestServerOptionPrice);
             intent.putExtra("caller","InputActivity");
             startActivity(intent);
 

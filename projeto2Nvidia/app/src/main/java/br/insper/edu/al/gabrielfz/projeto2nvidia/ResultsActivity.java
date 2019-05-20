@@ -2,9 +2,8 @@ package br.insper.edu.al.gabrielfz.projeto2nvidia;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class ResultsActivity extends AppCompatActivity {
 
@@ -13,12 +12,23 @@ public class ResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        TextView txtView = findViewById(R.id.resultsText);
-        CharSequence str = getIntent().getStringExtra("Name");
-        txtView.setText("Melhor Opção:" + str);
-        TextView txtViewPrice = findViewById(R.id.priceText);
-        CharSequence preco = getIntent().getStringExtra("Price");
-        txtViewPrice.setText("Preço Final: " +preco);
+        ImageView imgNavBar = findViewById(R.id.imageNavBar);
+        imgNavBar.setImageResource(R.drawable.horizontallogo);
+
+        TextView bestOptionView = findViewById(R.id.bestOption);
+        bestOptionView.setText(getIntent().getStringExtra("bestOption"));
+        TextView bestOptionPriceView = findViewById(R.id.bestOptionPrice);
+        bestOptionPriceView.setText("Preço: "+ getIntent().getStringExtra("bestOptionPrice")+" USD");
+
+        TextView cloudOptionView = findViewById(R.id.bestCloudOption);
+        cloudOptionView.setText(getIntent().getStringExtra("bestCloudOption"));
+        TextView cloudOptionPriceView = findViewById(R.id.bestCloudOptionPrice);
+        cloudOptionPriceView.setText("Preço: "+ getIntent().getStringExtra("bestCloudOptionPrice")+" USD");
+
+        TextView serverOptionView = findViewById(R.id.bestServerOption);
+        serverOptionView.setText(getIntent().getStringExtra("bestServerOption"));
+        TextView serverOptionViewPrice = findViewById(R.id.bestServerOptionPrice);
+        serverOptionViewPrice.setText("Preço: "+ getIntent().getStringExtra("bestServerOptionPrice")+" USD");
 
     }
 }

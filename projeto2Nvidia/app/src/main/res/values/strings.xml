@@ -6,6 +6,12 @@
 
     <string name="titleInput">Insira as informações do seu projeto</string>
 
+    <string name="bestOptionLabel">Melhor Opção encontrada:</string>
+
+    <string name="bestCloudOptionLabel">Melhor Opção de Cloud:</string>
+
+    <string name="bestServerOptionLabel">Melhor opção de servidor fisico:</string>
+
     <string-array name="databaseSizeArray">
         <item>Tamanho do Database</item>
         <item>100 Gb</item>
@@ -49,6 +55,7 @@
         <item>2 projetos</item>
         <item>3 projetos</item>
         <item>4 projetos</item>
+        <item>5  ou mais projetos</item>
     </string-array>
 
     <string-array name="ProjectTypeArray">
@@ -59,5 +66,12 @@
         <item>Voz</item>
         <item>Analytics</item>
         <item>Big data</item>
+    </string-array>
+
+    <string-array name="usageTypeArray">
+        <item>Tipo de uso</item>
+        <item>Treinamento</item>
+        <item>Inferencia</item>
+        <item>Treinamento + inferencia</item>
     </string-array>
 </resources>
