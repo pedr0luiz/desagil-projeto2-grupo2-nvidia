@@ -12,8 +12,13 @@
 
     <string name="bestServerOptionLabel">Melhor opção de servidor fisico:</string>
 
+    <string name="SpinnerTitle1">Tamanho do Database</string>
+    <string name="SpinnerTitle2">Tamanho do Time</string>
+    <string name="SpinnerTitle3">Projetos Simultaneos</string>
+    <string name="SpinnerTitle4">Tipo de Projeto</string>
+    <string name="SpinnerTitle5">Tipo de uso</string>
+
     <string-array name="databaseSizeArray">
-        <item>Tamanho do Database</item>
         <item>100 Gb</item>
         <item>200 Gb</item>
         <item>300 Gb</item>
