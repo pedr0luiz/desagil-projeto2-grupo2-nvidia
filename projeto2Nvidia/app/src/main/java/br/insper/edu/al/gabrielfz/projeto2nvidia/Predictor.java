@@ -31,7 +31,7 @@ public class Predictor {
 
     public CloudServer predictCloud(){
         if (dataType == "video"){
-
+            return p32Large;
         }
         return p316Large;
     }

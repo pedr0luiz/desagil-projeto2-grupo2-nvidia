@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultsActivity"
+    android:background="@color/gray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navBar"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp">
+        <ImageView
+            android:layout_width="200sp"
+            android:layout_height="65sp"
+            android:id="@+id/imageNavBar"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/navBar"
+        android:orientation="vertical"
+        android:background="@drawable/roundborders"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+        android:id="@+id/linearLay1">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bestOptionLabel"
+        android:layout_weight="2"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bestOption"
+        android:textColor="@color/white"
+        android:layout_marginTop="5sp"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bestOptionPrice"
+        android:textColor="@color/white"
+        android:layout_marginTop="5sp"
+        android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundborders"
+        android:layout_below="@id/linearLay1"
+        android:layout_marginTop="30sp"
+        android:id="@+id/linearLay2"
+        android:orientation="vertical"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp">
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textColor="@color/white"
+         android:text="@string/bestCloudOptionLabel"
+         android:layout_weight="2"
+         android:textSize="20sp" />
+
+     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:id="@+id/bestCloudOption"
+         android:layout_weight="1"
+         android:layout_marginTop="5sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:id="@+id/bestCloudOptionPrice"
+            android:layout_weight="1"
+            android:layout_marginTop="5sp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundborders"
+        android:layout_below="@id/linearLay2"
+        android:layout_marginTop="30sp"
+        android:id="@+id/linearLay3"
+        android:orientation="vertical"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/bestServerOptionLabel"
+            android:layout_weight="2"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:id="@+id/bestServerOption"
+            android:layout_weight="1"
+            android:layout_marginTop="5sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:id="@+id/bestServerOptionPrice"
+            android:layout_weight="1"
+            android:layout_marginTop="5sp"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

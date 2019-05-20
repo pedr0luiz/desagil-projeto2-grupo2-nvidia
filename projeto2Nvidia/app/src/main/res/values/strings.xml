@@ -6,6 +6,12 @@
 
     <string name="titleInput">Insira as informações do seu projeto</string>
 
+    <string name="bestOptionLabel">Melhor Opção encontrada:</string>
+
+    <string name="bestCloudOptionLabel">Melhor Opção de Cloud:</string>
+
+    <string name="bestServerOptionLabel">Melhor opção de servidor fisico:</string>
+
     <string-array name="databaseSizeArray">
         <item>Tamanho do Database</item>
         <item>100 Gb</item>
@@ -31,24 +37,25 @@
     </string-array>
     <string-array name="teamSizeArray">
         <item>Tamanho do Time</item>
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-        <item>60</item>
-        <item>70</item>
-        <item>80</item>
-        <item>90</item>
-        <item>100</item>
+        <item>10 pessoas</item>
+        <item>20 pessoas</item>
+        <item>30 pessoas</item>
+        <item>40 pessoas</item>
+        <item>50 pessoas</item>
+        <item>60 pessoas</item>
+        <item>70 pessoas</item>
+        <item>80 pessoas</item>
+        <item>90 pessoas</item>
+        <item>100 pessoas</item>
     </string-array>
 
     <string-array name="CurrentProjectSizeArray">
-        <item>Tamanho do Time</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
+        <item>Projetos simultaneos</item>
+        <item>1 projeto</item>
+        <item>2 projetos</item>
+        <item>3 projetos</item>
+        <item>4 projetos</item>
+        <item>5  ou mais projetos</item>
     </string-array>
 
     <string-array name="ProjectTypeArray">
@@ -59,5 +66,12 @@
         <item>Voz</item>
         <item>Analytics</item>
         <item>Big data</item>
+    </string-array>
+
+    <string-array name="usageTypeArray">
+        <item>Tipo de uso</item>
+        <item>Treinamento</item>
+        <item>Inferencia</item>
+        <item>Treinamento + inferencia</item>
     </string-array>
 </resources>
