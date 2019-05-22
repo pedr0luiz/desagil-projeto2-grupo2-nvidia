@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,18 +10,20 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0sp"
         android:id="@+id/titleInputs"
         android:text="@string/titleInput"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_marginTop="20sp"
+        android:layout_weight="0.05"
         />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="475sp"
+        android:layout_height="0sp"
+        android:layout_weight="0.8"
         android:id="@+id/scrollInput"
         android:layout_marginTop="30sp"
         android:layout_below="@+id/titleInputs">
@@ -40,7 +42,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/SpinnerTitle1"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/white"/>
 
@@ -49,7 +51,8 @@
                         android:layout_width="fill_parent"
                         android:layout_height="50sp"
                         android:spinnerMode="dialog"
-                        android:textAlignment="viewStart" />
+                        android:textAlignment="viewStart"
+                        android:prompt="@string/SpinnerTitle1"/>
             </LinearLayout>
 
             <LinearLayout
@@ -68,7 +71,7 @@
                     android:text="@string/SpinnerTitle2"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,7 +96,7 @@
                     android:text="@string/SpinnerTitle3"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
                 <Spinner
                     android:id="@+id/projectsSpinner"
                     android:layout_width="fill_parent"
@@ -101,7 +104,8 @@
                     android:spinnerMode="dialog"
                     android:textAlignment="viewStart"
                     android:layout_marginEnd="10sp"
-                    android:layout_marginStart="10sp" />
+                    android:layout_marginStart="10sp"
+                    android:prompt="@string/SpinnerTitle3"/>
             </LinearLayout>
 
             <LinearLayout
@@ -120,16 +124,16 @@
                     android:text="@string/SpinnerTitle4"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp" />
                 <Spinner
                     android:id="@+id/projectTypeSpinner"
                     android:layout_width="fill_parent"
                     android:layout_height="50sp"
                     android:spinnerMode="dialog"
                     android:textAlignment="viewStart"
-                    android:prompt="@string/SpinnerTitle4"
                     android:layout_marginEnd="10sp"
-                    android:layout_marginStart="10sp" />
+                    android:layout_marginStart="10sp"
+                    android:prompt="@string/SpinnerTitle4"/>
             </LinearLayout>
 
             <LinearLayout
@@ -148,16 +152,16 @@
                     android:text="@string/SpinnerTitle5"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/typeOfUsageSpinner"
                     android:spinnerMode="dialog"
                     android:textAlignment="viewStart"
-                    android:prompt="@string/SpinnerTitle5"
                     android:layout_marginEnd="10sp"
-                    android:layout_marginStart="10sp"/>
+                    android:layout_marginStart="10sp"
+                    android:prompt="@string/SpinnerTitle5"/>
             </LinearLayout>
 
         </RelativeLayout>
@@ -165,11 +169,13 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0sp"
+        android:layout_weight="0.1"
         android:textSize="20sp"
         android:layout_marginTop="30sp"
         android:layout_marginEnd="10sp"
         android:layout_marginStart="10sp"
+        android:layout_marginBottom="10sp"
         android:background="@drawable/roundborders"
         android:textAlignment="center"
         android:layout_below="@id/scrollInput"
@@ -177,7 +183,7 @@
         android:id="@+id/submitButton"
         />
 
-</RelativeLayout>
+</LinearLayout>
 
 
 
