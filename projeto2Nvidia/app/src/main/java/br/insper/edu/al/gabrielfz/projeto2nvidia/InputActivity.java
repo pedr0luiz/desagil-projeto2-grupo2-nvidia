@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class InputActivity extends AppCompatActivity {
@@ -29,12 +30,6 @@ public class InputActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
 
-        //Set Options Second Spinner
-        Spinner spinner2 = (Spinner) findViewById(R.id.teamSizeSpinner);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.teamSizeArray, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
-
         //Set Options fo third spinner
         Spinner spinner3 = (Spinner) findViewById(R.id.projectsSpinner);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.CurrentProjectSizeArray, android.R.layout.simple_spinner_item);
@@ -53,12 +48,12 @@ public class InputActivity extends AppCompatActivity {
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter5);
 
-        Spinner[] spinnerVector = new Spinner[5];
+        Spinner[] spinnerVector = new Spinner[4];
         spinnerVector[0] = spinner;
-        spinnerVector[1] = spinner2;
-        spinnerVector[2] = spinner3;
-        spinnerVector[3] = spinner4;
-        spinnerVector[4] = spinner5;
+        spinnerVector[1] = spinner3;
+        spinnerVector[2] = spinner4;
+        spinnerVector[3] = spinner5;
+        EditText teamSizeEdit = findViewById(R.id.editTeamSize);
 
 
         //Get Submit Button
@@ -76,10 +71,10 @@ public class InputActivity extends AppCompatActivity {
                 idx++;
             }
             this.databaseSize = Integer.parseInt(data[0].split(" ")[0]);
-            this.teamSize = Integer.parseInt(data[1].split(" ")[0]);
-            this.concurrentProjects = Integer.parseInt(data[2].split(" ")[0]);
-            this.projectType = data[3];
-            this.usageType = data[4];
+            this.teamSize = Integer.parseInt(teamSizeEdit.getText().toString());
+            this.concurrentProjects = Integer.parseInt(data[1].split(" ")[0]);
+            this.projectType = data[2];
+            this.usageType = data[3];
             Predictor predicao = new Predictor(this.teamSize,this.projectType,this.concurrentProjects,this.databaseSize);
             String bestOptionName = predicao.bestSolution().getName();
             String bestOptionPrice = String.valueOf(predicao.bestSolution().getPrice());
