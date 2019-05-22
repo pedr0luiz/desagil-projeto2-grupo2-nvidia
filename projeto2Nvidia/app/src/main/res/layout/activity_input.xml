@@ -19,63 +19,152 @@
         android:layout_marginTop="20sp"
         />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollInput"
+        android:layout_marginTop="30sp"
+        android:layout_below="@+id/titleInputs">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10sp"
+        android:layout_marginStart="10sp"
+        android:background="@drawable/roundborders"
+        android:orientation="vertical"
+        android:id="@+id/LinearLayInput1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/SpinnerTitle1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
     <Spinner
         android:id="@+id/databaseSizeSpinner"
         android:layout_width="fill_parent"
         android:layout_height="50sp"
-        android:layout_marginTop="30sp"
+        android:spinnerMode="dialog"
         android:textAlignment="viewStart"
-        android:layout_below="@id/titleInputs"
-        android:background="@drawable/roundborders"
-        android:layout_marginEnd="10sp"
-        android:layout_marginStart="10sp"
-
+        android:prompt="@string/SpinnerTitle1"
         />
+    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LinearLayInput2"
+                android:background="@drawable/roundborders"
+                android:orientation="vertical"
+                android:layout_below="@id/LinearLayInput1"
+                android:layout_marginEnd="10sp"
+                android:layout_marginStart="10sp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/SpinnerTitle2"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
     <Spinner
         android:id="@+id/teamSizeSpinner"
         android:layout_width="fill_parent"
         android:layout_height="50sp"
-        android:layout_below="@+id/databaseSizeSpinner"
-        android:layout_marginTop="30sp"
+        android:spinnerMode="dialog"
+        android:prompt="@string/SpinnerTitle2"
         android:textAlignment="viewStart"
-        android:background="@drawable/roundborders"
         android:layout_marginEnd="10sp"
         android:layout_marginStart="10sp"
         />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LinearLayInput3"
+                android:background="@drawable/roundborders"
+                android:orientation="vertical"
+                android:layout_below="@id/LinearLayInput2"
+                android:layout_marginEnd="10sp"
+                android:layout_marginStart="10sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/SpinnerTitle3"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
     <Spinner
         android:id="@+id/projectsSpinner"
         android:layout_width="fill_parent"
         android:layout_height="50sp"
-        android:layout_below="@+id/teamSizeSpinner"
-        android:layout_marginTop="30sp"
+        android:spinnerMode="dialog"
         android:textAlignment="viewStart"
-        android:background="@drawable/roundborders"
+        android:prompt="@string/SpinnerTitle3"
         android:layout_marginEnd="10sp"
         android:layout_marginStart="10sp"
         />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LinearLayInput4"
+                android:background="@drawable/roundborders"
+                android:orientation="vertical"
+                android:layout_below="@id/LinearLayInput3"
+                android:layout_marginEnd="10sp"
+                android:layout_marginStart="10sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/SpinnerTitle4"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
 
     <Spinner
         android:id="@+id/projectTypeSpinner"
         android:layout_width="fill_parent"
         android:layout_height="50sp"
-        android:layout_below="@+id/projectsSpinner"
-        android:layout_marginTop="30sp"
+        android:spinnerMode="dialog"
         android:textAlignment="viewStart"
-        android:background="@drawable/roundborders"
+        android:prompt="@string/SpinnerTitle4"
         android:layout_marginEnd="10sp"
         android:layout_marginStart="10sp"
         />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LinearLayInput5"
+                android:background="@drawable/roundborders"
+                android:orientation="vertical"
+                android:layout_below="@id/LinearLayInput4"
+                android:layout_marginEnd="10sp"
+                android:layout_marginStart="10sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/SpinnerTitle5"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/typeOfUsageSpinner"
-        android:layout_below="@id/projectTypeSpinner"
-        android:layout_marginTop="30sp"
+        android:spinnerMode="dialog"
         android:textAlignment="viewStart"
-        android:background="@drawable/roundborders"
+        android:prompt="@string/SpinnerTitle5"
         android:layout_marginEnd="10sp"
         android:layout_marginStart="10sp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 
     <Button
         android:layout_width="match_parent"
@@ -85,10 +174,11 @@
         android:layout_marginStart="10sp"
         android:background="@drawable/roundborders"
         android:textAlignment="center"
-        android:layout_below="@id/typeOfUsageSpinner"
+        android:layout_below="@id/scrollInput"
         android:text="Finalizar e enviar"
         android:id="@+id/submitButton"
         />
+
 </RelativeLayout>
 
 
