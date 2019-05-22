@@ -62,16 +62,15 @@ public class InputActivity extends AppCompatActivity {
             String[] data = new String[5];
             int idx = 0;
             for(Spinner spin: spinnerVector){
-                if(spin.getSelectedItemPosition() == 0){
-                    data[idx] = null;
-                }
-                else {
-                    data[idx] = spin.getSelectedItem().toString();
-                }
+                data[idx] = spin.getSelectedItem().toString();
                 idx++;
             }
+            try{
+                this.teamSize = Integer.parseInt(teamSizeEdit.getText().toString());
+            } catch(NumberFormatException e){
+                this.teamSize = 1;
+            }
             this.databaseSize = Integer.parseInt(data[0].split(" ")[0]);
-            this.teamSize = Integer.parseInt(teamSizeEdit.getText().toString());
             this.concurrentProjects = Integer.parseInt(data[1].split(" ")[0]);
             this.projectType = data[2];
             this.usageType = data[3];
