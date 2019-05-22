@@ -41,7 +41,6 @@
 
     </string-array>
     <string-array name="teamSizeArray">
-        <item>Tamanho do Time</item>
         <item>10 pessoas</item>
         <item>20 pessoas</item>
         <item>30 pessoas</item>
@@ -55,7 +54,6 @@
     </string-array>
 
     <string-array name="CurrentProjectSizeArray">
-        <item>Projetos simultaneos</item>
         <item>1 projeto</item>
         <item>2 projetos</item>
         <item>3 projetos</item>
@@ -64,7 +62,6 @@
     </string-array>
 
     <string-array name="ProjectTypeArray">
-        <item>Tipo de Projeto</item>
         <item>Análise de imagem</item>
         <item>Vídeo</item>
         <item>Texto</item>
@@ -74,7 +71,6 @@
     </string-array>
 
     <string-array name="usageTypeArray">
-        <item>Tipo de uso</item>
         <item>Treinamento</item>
         <item>Inferencia</item>
         <item>Treinamento + inferencia</item>
