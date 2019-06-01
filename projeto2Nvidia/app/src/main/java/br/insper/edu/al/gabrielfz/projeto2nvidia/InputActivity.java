@@ -1,16 +1,24 @@
 package br.insper.edu.al.gabrielfz.projeto2nvidia;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-public class InputActivity extends AppCompatActivity {
+public class InputActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private int databaseSize = 0;
     private int teamSize = 0;
     private int concurrentProjects = 0;
@@ -48,6 +56,8 @@ public class InputActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this, R.array.usageTypeArray, android.R.layout.simple_spinner_item);
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter5);
+        spinner5.setOnItemSelectedListener(this);
+
 
         Spinner[] spinnerVector = new Spinner[4];
         spinnerVector[0] = spinner;
@@ -85,23 +95,23 @@ public class InputActivity extends AppCompatActivity {
             this.concurrentProjects = Integer.parseInt(data[1].split(" ")[0]);
             this.projectType = data[2];
             this.usageType = data[3];
-            Predictor predicao = new Predictor(this.teamSize,this.projectType,this.concurrentProjects,this.databaseSize,this.usageType);
-            String bestOptionName = predicao.bestSolution().getName();
-            String bestOptionPrice = String.valueOf(predicao.bestSolution().getPrice());
-
-            String bestCloudOption = predicao.predictCloud().getName();
-            String bestCloudOptionPrice = String.valueOf(predicao.predictCloudPrice());
-
-            String bestServerOption = predicao.predictServer().getName();
-            String bestServerOptionPrice = String.valueOf(predicao.predictServer().getPrice());
+//            Predictor predicao = new Predictor(this.teamSize,this.projectType,this.concurrentProjects,this.databaseSize,this.usageType);
+//            String bestOptionName = predicao.bestSolution().getName();
+//            String bestOptionPrice = String.valueOf(predicao.bestSolution().getPrice());
+//
+//            String bestCloudOption = predicao.predictCloud().getName();
+//            String bestCloudOptionPrice = String.valueOf(predicao.predictCloudPrice());
+//
+//            String bestServerOption = predicao.predictServer().getName();
+//            String bestServerOptionPrice = String.valueOf(predicao.predictServer().getPrice());
 
             Intent intent = new Intent(this,ResultsActivity.class);
-            intent.putExtra("bestOption",bestOptionName);
-            intent.putExtra("bestOptionPrice",bestOptionPrice);
-            intent.putExtra("bestCloudOption", bestCloudOption);
-            intent.putExtra("bestCloudOptionPrice",bestCloudOptionPrice);
-            intent.putExtra("bestServerOption",bestServerOption);
-            intent.putExtra("bestServerOptionPrice",bestServerOptionPrice);
+//            intent.putExtra("bestOption",bestOptionName);
+//            intent.putExtra("bestOptionPrice",bestOptionPrice);
+//            intent.putExtra("bestCloudOption", bestCloudOption);
+//            intent.putExtra("bestCloudOptionPrice",bestCloudOptionPrice);
+//            intent.putExtra("bestServerOption",bestServerOption);
+//            intent.putExtra("bestServerOptionPrice",bestServerOptionPrice);
             intent.putExtra("caller","InputActivity");
             startActivity(intent);
 
@@ -112,9 +122,39 @@ public class InputActivity extends AppCompatActivity {
 
     }
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-        String selected = parent.getItemAtPosition(pos).toString();
+        System.out.println(pos);
+        if(pos == 1){
+            RelativeLayout RelLay = findViewById(R.id.scrollRelLay);
+            LinearLayout linearLay7 = new LinearLayout(getBaseContext());
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
+            params.setMargins(30,50,300,40);
+            params.addRule(RelativeLayout.BELOW, R.id.LinearLayInput6);
+            linearLay7.setLayoutParams(params);
+            linearLay7.setBackgroundResource(R.drawable.roundborders);
+            linearLay7.setOrientation(LinearLayout.VERTICAL);
+            RelLay.addView(linearLay7);
+            // Add Label
+            TextView aplicationsLabel = new TextView(getBaseContext());
+            LinearLayout.LayoutParams paramsText = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+            aplicationsLabel.setTextSize(18);
+            aplicationsLabel.setTextColor(Color.parseColor("#ffffff"));
+            aplicationsLabel.setLayoutParams(paramsText);
+            aplicationsLabel.setText("Aplicações Simultaneas:");
+            linearLay7.addView(aplicationsLabel);
+            //Add edit Text
+            EditText aplicationsEdit = new EditText(getBaseContext());
+            LinearLayout.LayoutParams paramsEdit = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+            aplicationsEdit.setTextSize(15);
+            aplicationsEdit.setLayoutParams(paramsEdit);
+            aplicationsEdit.setInputType(InputType.TYPE_CLASS_NUMBER);
+            linearLay7.addView(aplicationsEdit);
+        }
+        else{
+            RelativeLayout relativeLayout = findViewById(R.id.scrollRelLay);
+            if (relativeLayout.getChildCount() > 6) {
+                relativeLayout.removeViewAt(relativeLayout.getChildCount() - 1);
+            }
+        }
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
