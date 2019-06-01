@@ -9,8 +9,8 @@ public class CloudServer extends Server{
     protected final double bandWidthEBS;
 
     public CloudServer(String name, int gpuNumber, boolean nvLink, int gpuMemory, int vCPU, int ram,
-                       int bandWidth, double bandWidthEBS, double price){
-        super(name,gpuMemory,price);
+                       int bandWidth, double bandWidthEBS, double price, int quantity){
+        super(name,gpuMemory,price, quantity);
         this.gpuNumber = gpuNumber;
         this.nvLink = nvLink;
         this.vCPU = vCPU;
