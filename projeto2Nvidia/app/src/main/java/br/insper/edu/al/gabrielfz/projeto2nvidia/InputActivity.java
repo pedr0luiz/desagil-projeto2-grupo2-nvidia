@@ -16,6 +16,7 @@ public class InputActivity extends AppCompatActivity {
     private int concurrentProjects = 0;
     private String usageType;
     private String projectType;
+    private int projectTime = 0;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class InputActivity extends AppCompatActivity {
         spinnerVector[2] = spinner4;
         spinnerVector[3] = spinner5;
         EditText teamSizeEdit = findViewById(R.id.editTeamSize);
+        EditText timeEdit = findViewById(R.id.editTime);
 
 
         //Get Submit Button
@@ -69,6 +71,15 @@ public class InputActivity extends AppCompatActivity {
                 this.teamSize = Integer.parseInt(teamSizeEdit.getText().toString());
             } catch(NumberFormatException e){
                 this.teamSize = 1;
+            } catch (NullPointerException e){
+                this.teamSize = 1;
+            }
+            try{
+                this.projectTime = Integer.parseInt(timeEdit.getText().toString());
+            } catch(NumberFormatException e){
+                this.projectTime = 1;
+            } catch(NullPointerException e){
+                this.projectTime = 1;
             }
             this.databaseSize = Integer.parseInt(data[0].split(" ")[0]);
             this.concurrentProjects = Integer.parseInt(data[1].split(" ")[0]);
