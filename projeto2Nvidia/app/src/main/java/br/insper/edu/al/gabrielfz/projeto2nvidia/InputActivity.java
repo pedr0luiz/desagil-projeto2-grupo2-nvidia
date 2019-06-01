@@ -74,7 +74,7 @@ public class InputActivity extends AppCompatActivity {
             this.concurrentProjects = Integer.parseInt(data[1].split(" ")[0]);
             this.projectType = data[2];
             this.usageType = data[3];
-            Predictor predicao = new Predictor(this.teamSize,this.projectType,this.concurrentProjects,this.databaseSize);
+            Predictor predicao = new Predictor(this.teamSize,this.projectType,this.concurrentProjects,this.databaseSize,this.usageType);
             String bestOptionName = predicao.bestSolution().getName();
             String bestOptionPrice = String.valueOf(predicao.bestSolution().getPrice());
 
