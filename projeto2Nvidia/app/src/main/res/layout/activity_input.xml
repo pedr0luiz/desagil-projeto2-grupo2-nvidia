@@ -149,6 +149,31 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Tempo de projeto"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:inputType="number"
+                    android:id="@+id/editTime"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LinearLayInput6"
+                android:background="@drawable/roundborders"
+                android:orientation="vertical"
+                android:layout_below="@id/LinearLayInput5"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginStart="10sp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/SpinnerTitle5"
                     android:textColor="@color/white"
                     android:textStyle="bold"

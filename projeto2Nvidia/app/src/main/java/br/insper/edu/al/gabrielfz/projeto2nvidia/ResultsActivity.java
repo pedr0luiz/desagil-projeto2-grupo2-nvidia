@@ -19,16 +19,26 @@ public class ResultsActivity extends AppCompatActivity {
         bestOptionView.setText(getIntent().getStringExtra("bestOption"));
         TextView bestOptionPriceView = findViewById(R.id.bestOptionPrice);
         bestOptionPriceView.setText("Preço: "+ getIntent().getStringExtra("bestOptionPrice")+" USD");
+        ImageView bestOptionImageView = findViewById(R.id.bestOptionImage);
+        bestOptionImageView.setImageResource(R.drawable.geforce2080);
 
-        TextView cloudOptionView = findViewById(R.id.bestCloudOption);
-        cloudOptionView.setText(getIntent().getStringExtra("bestCloudOption"));
-        TextView cloudOptionPriceView = findViewById(R.id.bestCloudOptionPrice);
-        cloudOptionPriceView.setText("Preço: "+ getIntent().getStringExtra("bestCloudOptionPrice")+" USD");
+        TextView compareTitleView = findViewById(R.id.titleCompare);
+        TextView compareNameView = findViewById(R.id.compareName);
+        TextView comparePriceView = findViewById(R.id.comparePrice);
 
-        TextView serverOptionView = findViewById(R.id.bestServerOption);
-        serverOptionView.setText(getIntent().getStringExtra("bestServerOption"));
-        TextView serverOptionViewPrice = findViewById(R.id.bestServerOptionPrice);
-        serverOptionViewPrice.setText("Preço: "+ getIntent().getStringExtra("bestServerOptionPrice")+" USD");
+        if(getIntent().getStringExtra("bestCloudOption").equals(getIntent().getStringExtra("bestOption"))){
+            compareTitleView.setText("Comparado ao servidor fisico:");
+            compareNameView.setText(getIntent().getStringExtra("bestServerOption"));
+            comparePriceView.setText(getIntent().getStringExtra("bestServerOptionPrice"));
+
+        }
+        else{
+            compareTitleView.setText("Comparado ao cloud:");
+            compareNameView.setText(getIntent().getStringExtra("bestCloudOption"));
+            comparePriceView.setText(getIntent().getStringExtra("bestCloudOptionPrice"));
+        }
+
+
 
     }
 }
