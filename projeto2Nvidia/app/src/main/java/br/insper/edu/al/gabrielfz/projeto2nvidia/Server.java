@@ -15,7 +15,7 @@ public abstract class Server {
         this.name = name;
         this.gpuMemory = gpuMemory;
         this.quantity = quantity;
-        this.price = price*quantity;
+        this.price = Math.round(price*quantity);
         this.gpuNumber = gpuNumber;
     }
 

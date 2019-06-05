@@ -40,7 +40,7 @@ public class ResultsActivity extends AppCompatActivity {
         TextView bestOptionView = findViewById(R.id.bestOption);
         bestOptionView.setText("Nome: "+predictor.bestSolution().getName());
         TextView bestOptionPriceView = findViewById(R.id.bestOptionPrice);
-        bestOptionPriceView.setText("Preço: " + String.valueOf(predictor.bestSolution().getPrice())+" USD");
+        bestOptionPriceView.setText("Preço: R$ " + String.valueOf(predictor.bestSolution().getPrice()));
         TextView bestOptionQuantity = findViewById(R.id.bestOptionQuantity);
         bestOptionQuantity.setText("Quantidade: "+  predictor.bestSolution().getQuantity());
         LinearLayout linearLayBestOption = findViewById(R.id.linearLay1);
@@ -65,14 +65,14 @@ public class ResultsActivity extends AppCompatActivity {
         if(predictor.bestSolution().getName().equals(predictor.predictCloud().getName())){
             compareTitleView.setText("Comparado ao servidor fisico:");
             compareNameView.setText("Nome: "+predictor.predictServer().getName());
-            comparePriceView.setText("Preço: "+String.valueOf(predictor.predictServer().getPrice())+" USD");
+            comparePriceView.setText("Preço: R$ "+String.valueOf(predictor.predictServer().getPrice()));
             compareQuantityView.setText("Quantidade: "+predictor.predictServer().getQuantity());
 
         }
         else{
             compareTitleView.setText("Comparado ao cloud:");
             compareNameView.setText("Nome: "+predictor.predictCloud().getName());
-            comparePriceView.setText("Preço: "+String.valueOf(predictor.predictCloud().getPrice())+" USD");
+            comparePriceView.setText("Preço: R$"+String.valueOf(predictor.predictCloud().getPrice()));
             compareQuantityView.setText("Quantidade: "+String.valueOf(predictor.predictCloud().getQuantity()));
         }
         TextView maisDetalhes = findViewById(R.id.maisDetalhes);
