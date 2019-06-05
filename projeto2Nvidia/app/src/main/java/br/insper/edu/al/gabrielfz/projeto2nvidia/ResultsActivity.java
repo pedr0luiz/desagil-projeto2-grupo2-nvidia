@@ -8,14 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class ResultsActivity extends AppCompatActivity {
 
@@ -73,7 +65,11 @@ public class ResultsActivity extends AppCompatActivity {
         else{
             compareTitleView.setText("Comparado ao cloud:");
             compareNameView.setText("Nome: "+predictor.predictCloud().getName());
+<<<<<<< HEAD
             comparePriceView.setText("Preço: R$ "+String.valueOf(predictor.predictCloud().getPrice()));
+=======
+            comparePriceView.setText("Preço: R$"+String.valueOf(predictor.predictCloud().getPrice()));
+>>>>>>> e8c3fc011d9bb7d9723a25373501758c0102c4c2
             compareQuantityView.setText("Quantidade: "+String.valueOf(predictor.predictCloud().getQuantity()));
         }
         TextView maisDetalhes = findViewById(R.id.maisDetalhes);
