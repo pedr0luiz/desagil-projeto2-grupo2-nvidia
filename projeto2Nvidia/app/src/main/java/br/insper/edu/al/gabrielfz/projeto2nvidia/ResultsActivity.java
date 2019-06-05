@@ -65,11 +65,7 @@ public class ResultsActivity extends AppCompatActivity {
         else{
             compareTitleView.setText("Comparado ao cloud:");
             compareNameView.setText("Nome: "+predictor.predictCloud().getName());
-<<<<<<< HEAD
             comparePriceView.setText("Preço: R$ "+String.valueOf(predictor.predictCloud().getPrice()));
-=======
-            comparePriceView.setText("Preço: R$"+String.valueOf(predictor.predictCloud().getPrice()));
->>>>>>> e8c3fc011d9bb7d9723a25373501758c0102c4c2
             compareQuantityView.setText("Quantidade: "+String.valueOf(predictor.predictCloud().getQuantity()));
         }
         TextView maisDetalhes = findViewById(R.id.maisDetalhes);
@@ -240,6 +236,4 @@ public class ResultsActivity extends AppCompatActivity {
 
     }
 
-    private void doInBackground() {
-    }
 }

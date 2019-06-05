@@ -6,11 +6,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-<<<<<<< HEAD
-public class Predictor{
-=======
+
+
 public class Predictor {
->>>>>>> e8c3fc011d9bb7d9723a25373501758c0102c4c2
     private final int scientistsNumber;
     private final String dataType;
     private final int Projects;
@@ -31,13 +29,8 @@ public class Predictor {
     private double dollar;
     private boolean isDone;
 
-<<<<<<< HEAD
     public Predictor(int time, int applications, int scientistsNumber, String dataType, int Projects, double dataSetSize, String usageType,String dollar){
         this.dollar = Double.parseDouble(dollar.replace(",","."));
-=======
-    public Predictor(int time, int applications, int scientistsNumber, String dataType, int Projects, double dataSetSize, String usageType){
-        double dolar = 3.88;
->>>>>>> e8c3fc011d9bb7d9723a25373501758c0102c4c2
         this.time = time;
         this.isDone = false;
         this.applications = applications;
@@ -47,7 +40,6 @@ public class Predictor {
         this.dataSetSize = dataSetSize;
         this.usageType = usageType;
         this.p32Large = new CloudServer("Amazon p3.2xlarge",1,false,16,8,61,
-<<<<<<< HEAD
                 10,1.5,3.06*this.dollar, scientistsNumber, time*30*16);
 
         this.p38Large = new CloudServer("Amazon p3.8xlarge", 4, true, 64,	32,
@@ -63,23 +55,7 @@ public class Predictor {
         this.doubleRTX = new PhysicalServer("Servidor com duas RTX 6000",48, 42000*this.dollar, 1, 2);
         this.quadrupleV100 = new PhysicalServer("Servidor DGX com 4 Tesla V100",128, 65000*this.dollar, 1, 4);
         this.eightupleV100 = new PhysicalServer("Servidor DGX-1 com 8 Tesla V100",256, 211000*this.dollar, 1, 8);
-=======
-                10,1.5,3.06*dolar, scientistsNumber, time*30*16);
 
-        this.p38Large = new CloudServer("Amazon p3.8xlarge", 4, true, 64,	32,
-                244,	10,	7,12.24*dolar, 1, time*30*16);
-
-        this.p316Large = new CloudServer("Amazon p3.16xlarge",8,true,128,64,488,
-                25,14,24.48*dolar, 1, time*30*16);
-
-        this.Geforce2080 = new PhysicalServer("Geforce 2080TI",11, 1870*dolar, scientistsNumber, 1);
-        this.Titan = new PhysicalServer("Workstation Titan",24, 12000*dolar, scientistsNumber, 1);
-        this.doubleT4 = new PhysicalServer("Servidor com duas Tesla T4",32, 20000*dolar, 1, 2);
-        this.quadrupleT4 = new PhysicalServer("Servidor com quatro Tesla T4",64, 25000*dolar, 1, 4);
-        this.doubleRTX = new PhysicalServer("Servidor com duas RTX 6000",48, 42000, 1, 2);
-        this.quadrupleV100 = new PhysicalServer("Servidor DGX com 4 Tesla V100",128, 65000*dolar, 1, 4);
-        this.eightupleV100 = new PhysicalServer("Servidor DGX-1 com 8 Tesla V100",256, 211000*dolar, 1, 8);
->>>>>>> e8c3fc011d9bb7d9723a25373501758c0102c4c2
     }
 
 //    CloudServer p324Large = new CloudServer("p3dn.24xlarge",8,true,256,96,
@@ -137,29 +113,5 @@ public class Predictor {
             return this.predictCloud();
         }
     }
-<<<<<<< HEAD
-=======
-//    @Override
-//    public Long doInBackground(String... params){
-//        try {
-//            System.out.println("RODEI");
-//            URL url = new URL("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='06-05-2019'&$top=1&$format=text/csv");
-//            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-//            con.setRequestMethod("GET");
-//            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-//            String inputLine;
-//            StringBuffer content = new StringBuffer();
-//            while ((inputLine = in.readLine()) != null) {
-//                content.append(inputLine);
-//            }
-//            System.out.println(content);
-//            in.close();
-//        } catch(IOException e){
-//            System.out.println("ERROR");
-//        }
-//        long someLong = (long) 0.1;
-//        return someLong;
-//    }
->>>>>>> e8c3fc011d9bb7d9723a25373501758c0102c4c2
 
 }
