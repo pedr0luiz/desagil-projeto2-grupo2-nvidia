@@ -30,12 +30,15 @@ public class InputActivity extends AppCompatActivity implements AdapterView.OnIt
     private int projectTime = 0;
     private int applications = 0;
     private boolean inferencia;
+    private DollarGetter dollar;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
 
+        dollar = new DollarGetter();
+        dollar.execute();
 
         //Set Options first spinner
         Spinner spinner = (Spinner) findViewById(R.id.databaseSizeSpinner);
@@ -112,17 +115,21 @@ public class InputActivity extends AppCompatActivity implements AdapterView.OnIt
             this.projectType = data[2];
             this.usageType = data[3];
 
-            Intent intent = new Intent(this,ResultsActivity.class);
-            intent.putExtra("projectTime",this.projectTime);
-            intent.putExtra("applications",this.applications);
-            intent.putExtra("teamSize",this.teamSize);
-            intent.putExtra("projectType",this.projectType);
-            intent.putExtra("projects",this.projects);
-            intent.putExtra("databaseSize",this.databaseSize);
-            intent.putExtra("usageType",this.usageType);
 
-            intent.putExtra("caller","InputActivity");
-            startActivity(intent);
+            if (dollar.isDone()) {
+                Intent intent = new Intent(this,ResultsActivity.class);
+                intent.putExtra("projectTime",this.projectTime);
+                intent.putExtra("applications",this.applications);
+                intent.putExtra("teamSize",this.teamSize);
+                intent.putExtra("projectType",this.projectType);
+                intent.putExtra("projects",this.projects);
+                intent.putExtra("databaseSize",this.databaseSize);
+                intent.putExtra("usageType",this.usageType);
+                intent.putExtra("dollarValue",dollar.dollar);
+                intent.putExtra("caller","InputActivity");
+//                intent.putExtra("dollar", dollar);
+                startActivity(intent);
+            }
 
         });
 

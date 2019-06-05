@@ -26,9 +26,13 @@ public class Predictor extends AsyncTask<String, Integer, Long> {
     private final PhysicalServer doubleRTX;
     private final PhysicalServer quadrupleV100;
     private final PhysicalServer eightupleV100;
+    private double dollar;
+    private boolean isDone;
 
-    public Predictor(int time, int applications, int scientistsNumber, String dataType, int Projects, double dataSetSize, String usageType){
+    public Predictor(int time, int applications, int scientistsNumber, String dataType, int Projects, double dataSetSize, String usageType,String dollar){
+        this.dollar = Double.parseDouble(dollar.replace(",","."));
         this.time = time;
+        this.isDone = false;
         this.applications = applications;
         this.scientistsNumber = scientistsNumber;
         this.dataType = dataType;
@@ -36,21 +40,21 @@ public class Predictor extends AsyncTask<String, Integer, Long> {
         this.dataSetSize = dataSetSize;
         this.usageType = usageType;
         this.p32Large = new CloudServer("Amazon p3.2xlarge",1,false,16,8,61,
-                10,1.5,3.06, scientistsNumber, time*30*16);
+                10,1.5,3.06*this.dollar, scientistsNumber, time*30*16);
 
         this.p38Large = new CloudServer("Amazon p3.8xlarge", 4, true, 64,	32,
-                244,	10,	7,12.24, 1, time*30*16);
+                244,	10,	7,12.24*this.dollar, 1, time*30*16);
 
         this.p316Large = new CloudServer("Amazon p3.16xlarge",8,true,128,64,488,
-                25,14,24.48, 1, time*30*16);
+                25,14,24.48*this.dollar, 1, time*30*16);
 
-        this.Geforce2080 = new PhysicalServer("Geforce 2080TI",11, 1870, scientistsNumber, 1);
-        this.Titan = new PhysicalServer("Workstation Titan",24, 12000, scientistsNumber, 1);
-        this.doubleT4 = new PhysicalServer("Servidor com duas Tesla T4",32, 20000, 1, 2);
-        this.quadrupleT4 = new PhysicalServer("Servidor com quatro Tesla T4",64, 25000, 1, 4);
-        this.doubleRTX = new PhysicalServer("Servidor com duas RTX 6000",48, 42000, 1, 2);
-        this.quadrupleV100 = new PhysicalServer("Servidor DGX com 4 Tesla V100",128, 65000, 1, 4);
-        this.eightupleV100 = new PhysicalServer("Servidor DGX-1 com 8 Tesla V100",256, 211000, 1, 8);
+        this.Geforce2080 = new PhysicalServer("Geforce 2080TI",11, 1870*this.dollar, scientistsNumber, 1);
+        this.Titan = new PhysicalServer("Workstation Titan",24, 12000*this.dollar, scientistsNumber, 1);
+        this.doubleT4 = new PhysicalServer("Servidor com duas Tesla T4",32, 20000*this.dollar, 1, 2);
+        this.quadrupleT4 = new PhysicalServer("Servidor com quatro Tesla T4",64, 25000*this.dollar, 1, 4);
+        this.doubleRTX = new PhysicalServer("Servidor com duas RTX 6000",48, 42000*this.dollar, 1, 2);
+        this.quadrupleV100 = new PhysicalServer("Servidor DGX com 4 Tesla V100",128, 65000*this.dollar, 1, 4);
+        this.eightupleV100 = new PhysicalServer("Servidor DGX-1 com 8 Tesla V100",256, 211000*this.dollar, 1, 8);
     }
 
 //    CloudServer p324Large = new CloudServer("p3dn.24xlarge",8,true,256,96,
@@ -128,6 +132,15 @@ public class Predictor extends AsyncTask<String, Integer, Long> {
         }
         long someLong = (long) 0.1;
         return someLong;
+    }
+
+    @Override
+    public void onPostExecute(Long result) {
+        isDone = true;
+    }
+
+    public boolean isDone() {
+        return isDone;
     }
 
 }
