@@ -78,6 +78,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:inputType="number"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginStart="10sp"
                     android:id="@+id/editTeamSize"/>
             </LinearLayout>
 
@@ -150,7 +152,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tempo de projeto"
+                    android:text="Tempo de projeto(meses):"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="18sp" />
@@ -159,6 +161,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:inputType="number"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginStart="10sp"
                     android:id="@+id/editTime"/>
             </LinearLayout>
 
@@ -171,6 +175,7 @@
                 android:layout_below="@id/LinearLayInput5"
                 android:layout_marginTop="20sp"
                 android:layout_marginEnd="10sp"
+                android:layout_marginBottom="20sp"
                 android:layout_marginStart="10sp">
                 <TextView
                     android:layout_width="match_parent"

@@ -3,6 +3,7 @@ package br.insper.edu.al.gabrielfz.projeto2nvidia;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,13 +19,17 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.io.Serializable;
+
 public class InputActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private int databaseSize = 0;
     private int teamSize = 0;
-    private int concurrentProjects = 0;
+    private int projects = 0;
     private String usageType;
     private String projectType;
     private int projectTime = 0;
+    private int applications = 0;
+    private boolean inferencia;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,32 +96,33 @@ public class InputActivity extends AppCompatActivity implements AdapterView.OnIt
             } catch(NullPointerException e){
                 this.projectTime = 1;
             }
+            if(inferencia){
+                try{
+                    int h = 1;
+                    EditText applicationsEdit = findViewById(h);
+                    this.applications = Integer.parseInt(applicationsEdit.getText().toString());
+                } catch (NumberFormatException e){
+                    this.applications = 0;
+                } catch (NullPointerException e) {
+                    this.applications = 0;
+                }
+            }
             this.databaseSize = Integer.parseInt(data[0].split(" ")[0]);
-            this.concurrentProjects = Integer.parseInt(data[1].split(" ")[0]);
+            this.projects = Integer.parseInt(data[1].split(" ")[0]);
             this.projectType = data[2];
             this.usageType = data[3];
-//            Predictor predicao = new Predictor(this.teamSize,this.projectType,this.concurrentProjects,this.databaseSize,this.usageType);
-//            String bestOptionName = predicao.bestSolution().getName();
-//            String bestOptionPrice = String.valueOf(predicao.bestSolution().getPrice());
-//
-//            String bestCloudOption = predicao.predictCloud().getName();
-//            String bestCloudOptionPrice = String.valueOf(predicao.predictCloudPrice());
-//
-//            String bestServerOption = predicao.predictServer().getName();
-//            String bestServerOptionPrice = String.valueOf(predicao.predictServer().getPrice());
 
             Intent intent = new Intent(this,ResultsActivity.class);
-//            intent.putExtra("bestOption",bestOptionName);
-//            intent.putExtra("bestOptionPrice",bestOptionPrice);
-//            intent.putExtra("bestCloudOption", bestCloudOption);
-//            intent.putExtra("bestCloudOptionPrice",bestCloudOptionPrice);
-//            intent.putExtra("bestServerOption",bestServerOption);
-//            intent.putExtra("bestServerOptionPrice",bestServerOptionPrice);
+            intent.putExtra("projectTime",this.projectTime);
+            intent.putExtra("applications",this.applications);
+            intent.putExtra("teamSize",this.teamSize);
+            intent.putExtra("projectType",this.projectType);
+            intent.putExtra("projects",this.projects);
+            intent.putExtra("databaseSize",this.databaseSize);
+            intent.putExtra("usageType",this.usageType);
+
             intent.putExtra("caller","InputActivity");
             startActivity(intent);
-
-
-
 
         });
 
@@ -127,7 +133,7 @@ public class InputActivity extends AppCompatActivity implements AdapterView.OnIt
             RelativeLayout RelLay = findViewById(R.id.scrollRelLay);
             LinearLayout linearLay7 = new LinearLayout(getBaseContext());
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
-            params.setMargins(30,50,300,40);
+            params.setMargins(30,40,30,40);
             params.addRule(RelativeLayout.BELOW, R.id.LinearLayInput6);
             linearLay7.setLayoutParams(params);
             linearLay7.setBackgroundResource(R.drawable.roundborders);
@@ -137,9 +143,10 @@ public class InputActivity extends AppCompatActivity implements AdapterView.OnIt
             TextView aplicationsLabel = new TextView(getBaseContext());
             LinearLayout.LayoutParams paramsText = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
             aplicationsLabel.setTextSize(18);
+            aplicationsLabel.setTypeface(aplicationsLabel.getTypeface(), Typeface.BOLD);
             aplicationsLabel.setTextColor(Color.parseColor("#ffffff"));
             aplicationsLabel.setLayoutParams(paramsText);
-            aplicationsLabel.setText("Aplicações Simultaneas:");
+            aplicationsLabel.setText("Aplicações Simultâneas:");
             linearLay7.addView(aplicationsLabel);
             //Add edit Text
             EditText aplicationsEdit = new EditText(getBaseContext());
@@ -147,12 +154,16 @@ public class InputActivity extends AppCompatActivity implements AdapterView.OnIt
             aplicationsEdit.setTextSize(15);
             aplicationsEdit.setLayoutParams(paramsEdit);
             aplicationsEdit.setInputType(InputType.TYPE_CLASS_NUMBER);
+            int i = 1;
+            aplicationsEdit.setId(i);
             linearLay7.addView(aplicationsEdit);
+            this.inferencia = true;
         }
         else{
             RelativeLayout relativeLayout = findViewById(R.id.scrollRelLay);
             if (relativeLayout.getChildCount() > 6) {
                 relativeLayout.removeViewAt(relativeLayout.getChildCount() - 1);
+                this.inferencia = false;
             }
         }
     }
