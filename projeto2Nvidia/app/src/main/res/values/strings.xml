@@ -12,11 +12,11 @@
 
     <string name="bestServerOptionLabel">Melhor opção de servidor fisico:</string>
 
-    <string name="SpinnerTitle1">Tamanho do Database</string>
-    <string name="SpinnerTitle2">Tamanho do Time</string>
-    <string name="SpinnerTitle3">Projetos Simultaneos</string>
-    <string name="SpinnerTitle4">Tipo de Projeto</string>
-    <string name="SpinnerTitle5">Tipo de uso</string>
+    <string name="SpinnerTitle1">Tamanho do Dataset:</string>
+    <string name="SpinnerTitle2">Tamanho do Time:</string>
+    <string name="SpinnerTitle3">Projetos:</string>
+    <string name="SpinnerTitle4">Tipo de Projeto:</string>
+    <string name="SpinnerTitle5">Tipo de uso:</string>
 
     <string-array name="databaseSizeArray">
         <item>100 Gb</item>
@@ -28,29 +28,14 @@
         <item>700 Gb</item>
         <item>800 Gb</item>
         <item>900 Gb</item>
-        <item>10 Tb</item>
-        <item>20 Tb</item>
-        <item>30 Tb</item>
-        <item>40 Tb</item>
-        <item>50 Tb</item>
-        <item>60 Tb</item>
-        <item>70 Tb</item>
-        <item>80 Tb</item>
-        <item>90 Tb</item>
-        <item>100 Tb</item>
+        <item>1000 Gb</item>
+        <item>2000 Gb</item>
+        <item>3000 Gb</item>
+        <item>4000 Gb</item>
+        <item>5000 Gb</item>
+        <item>6000 Gb</item>
+        <item>7000 Gb</item>
 
-    </string-array>
-    <string-array name="teamSizeArray">
-        <item>10 pessoas</item>
-        <item>20 pessoas</item>
-        <item>30 pessoas</item>
-        <item>40 pessoas</item>
-        <item>50 pessoas</item>
-        <item>60 pessoas</item>
-        <item>70 pessoas</item>
-        <item>80 pessoas</item>
-        <item>90 pessoas</item>
-        <item>100 pessoas</item>
     </string-array>
 
     <string-array name="CurrentProjectSizeArray">
@@ -67,12 +52,11 @@
         <item>Texto</item>
         <item>Voz</item>
         <item>Analytics</item>
-        <item>Big data</item>
     </string-array>
 
     <string-array name="usageTypeArray">
         <item>Treinamento</item>
-        <item>Inferencia</item>
-        <item>Treinamento + inferencia</item>
+        <item>Inferência</item>
+        <item>Treinamento + Inferência</item>
     </string-array>
 </resources>
