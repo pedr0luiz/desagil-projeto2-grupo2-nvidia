@@ -5,12 +5,18 @@ public abstract class Server {
     protected int gpuMemory;
     protected String name;
     protected int quantity;
+    protected int gpuNumber;
 
-    public Server(String name, int gpuMemory, double price, int quantity){
+    public Server(){
+
+    }
+
+    public Server(String name, int gpuMemory, double price, int quantity, int gpuNumber){
         this.name = name;
         this.gpuMemory = gpuMemory;
         this.quantity = quantity;
-        this.price = price*quantity;
+        this.price = Math.round(price*quantity);
+        this.gpuNumber = gpuNumber;
     }
 
     public String getName() {
@@ -25,5 +31,9 @@ public abstract class Server {
 
     public int getGpuMemory() {
         return gpuMemory;
+    }
+
+    public int getGpuNumber() {
+        return gpuNumber;
     }
 }
