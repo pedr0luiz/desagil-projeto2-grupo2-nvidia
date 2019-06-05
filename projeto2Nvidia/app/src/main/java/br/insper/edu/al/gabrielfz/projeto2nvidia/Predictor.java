@@ -72,7 +72,7 @@ public class Predictor {
         if(dataSetSize <= 7000 && scientistsNumber <= 8){
             return p316Large;
         }
-        return null;
+        return p316Large;
     }
 
     public PhysicalServer predictServer() {
@@ -101,7 +101,7 @@ public class Predictor {
                 return quadrupleT4;
             }
         }
-        return null;
+        return eightupleV100;
     }
 
     public Server bestSolution(){
